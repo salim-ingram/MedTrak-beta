@@ -156,7 +156,7 @@ export default function MedCard(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children={medication?.medQuanitity}
+          children="120"
           {...getOverrideProps(overrides, "medQuantity")}
         ></Text>
         <Flex
