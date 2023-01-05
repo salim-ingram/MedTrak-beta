@@ -6,15 +6,31 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import { Medication } from "../models";
+import {
+  getOverrideProps,
+  useDataStoreDeleteAction,
+} from "@aws-amplify/ui-react/internal";
+import { schema } from "../models/schema";
 import { Flex, Icon, Text } from "@aws-amplify/ui-react";
 export default function MedicationCardDefault(props) {
-  const { overrides, ...rest } = props;
+  const { medication, takeClick, overrides, ...rest } = props;
+  const deleteOnClick = useDataStoreDeleteAction({
+    id: medication?.id,
+    model: Medication,
+    schema: schema,
+  });
+  const vectorThreeSixFiveThreeTwoEightSixSevenOnClick =
+    useDataStoreDeleteAction({
+      id: medication?.id,
+      model: Medication,
+      schema: schema,
+    });
   return (
     <Flex
       gap="0"
       direction="column"
-      width="275px"
+      width="260px"
       height="unset"
       justifyContent="flex-end"
       alignItems="center"
@@ -28,12 +44,11 @@ export default function MedicationCardDefault(props) {
       <Flex
         gap="1px"
         direction="row"
-        width="unset"
+        width="260px"
         height="unset"
         justifyContent="space-between"
         alignItems="flex-start"
         shrink="0"
-        alignSelf="stretch"
         position="relative"
         padding="20px 15px 0px 20px"
         {...getOverrideProps(overrides, "options")}
@@ -48,6 +63,9 @@ export default function MedicationCardDefault(props) {
           justifyContent="unset"
           shrink="0"
           position="relative"
+          onClick={() => {
+            deleteOnClick();
+          }}
           {...getOverrideProps(overrides, "delete")}
         >
           <Icon
@@ -70,6 +88,9 @@ export default function MedicationCardDefault(props) {
             bottom="0%"
             left="0%"
             right="0%"
+            onClick={() => {
+              vectorThreeSixFiveThreeTwoEightSixSevenOnClick();
+            }}
             {...getOverrideProps(overrides, "Vector36532867")}
           ></Icon>
         </Flex>
@@ -141,7 +162,7 @@ export default function MedicationCardDefault(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children="120"
+          children={medication?.medQuanitity}
           {...getOverrideProps(overrides, "120")}
         ></Text>
         <Flex
@@ -174,7 +195,7 @@ export default function MedicationCardDefault(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="30"
+            children={medication?.daysLeft}
             {...getOverrideProps(overrides, "30")}
           ></Text>
           <Text
@@ -209,7 +230,7 @@ export default function MedicationCardDefault(props) {
         alignItems="flex-start"
         shrink="0"
         position="relative"
-        padding="20px 30px 25px 30px"
+        padding="20px 0px 25px 10px"
         {...getOverrideProps(overrides, "Info")}
       >
         <Flex
@@ -244,7 +265,7 @@ export default function MedicationCardDefault(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="Lithium"
+            children={medication?.medName}
             {...getOverrideProps(overrides, "Med Name")}
           ></Text>
           <Flex
@@ -290,7 +311,7 @@ export default function MedicationCardDefault(props) {
                 position="relative"
                 padding="0px 0px 0px 0px"
                 whiteSpace="pre-wrap"
-                children="300"
+                children={medication?.medStrength}
                 {...getOverrideProps(overrides, "Med Strength")}
               ></Text>
               <Text
@@ -384,7 +405,7 @@ export default function MedicationCardDefault(props) {
               position="relative"
               padding="0px 0px 0px 0px"
               whiteSpace="pre-wrap"
-              children="4"
+              children={medication?.dailyDose}
               {...getOverrideProps(overrides, "4")}
             ></Text>
           </Flex>
@@ -413,6 +434,7 @@ export default function MedicationCardDefault(props) {
               borderRadius="20px"
               padding="5px 29px 5px 29px"
               backgroundColor="rgba(255,92,0,1)"
+              onClick={takeClick}
               {...getOverrideProps(overrides, "Button")}
             >
               <Text

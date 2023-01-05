@@ -12,41 +12,45 @@ import {
   useDataStoreDeleteAction,
 } from "@aws-amplify/ui-react/internal";
 import { schema } from "../models/schema";
-import { Button, Flex, Icon, Text } from "@aws-amplify/ui-react";
+import { Flex, Icon, Text } from "@aws-amplify/ui-react";
 export default function MedCard(props) {
-  const { medication, overrides, ...rest } = props;
+  const { medication, takeClick, overrides, ...rest } = props;
   const deleteOnClick = useDataStoreDeleteAction({
     id: medication?.id,
     model: Medication,
     schema: schema,
   });
-  const vectorThreeSixFourNineTwoSevenOneFourOnClick = useDataStoreDeleteAction(
-    { id: medication?.id, model: Medication, schema: schema }
-  );
+  const vectorThreeSixFiveThreeTwoEightSixSevenOnClick =
+    useDataStoreDeleteAction({
+      id: medication?.id,
+      model: Medication,
+      schema: schema,
+    });
   return (
     <Flex
       gap="0"
       direction="column"
-      width="unset"
+      width="260px"
       height="unset"
-      justifyContent="flex-start"
+      justifyContent="flex-end"
       alignItems="center"
       position="relative"
+      borderRadius="20px"
       padding="0px 0px 0px 0px"
-      backgroundColor="rgba(255,255,255,1)"
+      backgroundImage="linear-gradient(-81deg, rgba(240,121,83,1), rgba(142,194,243,1))"
       {...rest}
       {...getOverrideProps(overrides, "MedCard")}
     >
       <Flex
         gap="1px"
         direction="row"
-        width="275px"
+        width="260px"
         height="unset"
         justifyContent="space-between"
         alignItems="flex-start"
         shrink="0"
         position="relative"
-        padding="20px 20px 0px 30px"
+        padding="20px 15px 0px 20px"
         {...getOverrideProps(overrides, "options")}
       >
         <Flex
@@ -71,7 +75,7 @@ export default function MedCard(props) {
             paths={[
               {
                 d: "M9.42857 4.66667L9.42857 12.4444L2.57143 12.4444L2.57143 4.66667L9.42857 4.66667ZM8.14286 0L3.85714 0L3 0.777778L0 0.777778L0 2.33333L12 2.33333L12 0.777778L9 0.777778L8.14286 0ZM11.1429 3.11111L0.857143 3.11111L0.857143 12.4444C0.857143 13.3 1.62857 14 2.57143 14L9.42857 14C10.3714 14 11.1429 13.3 11.1429 12.4444L11.1429 3.11111Z",
-                fill: "rgba(13,26,38,1)",
+                fill: "rgba(255,255,255,1)",
                 fillRule: "nonzero",
               },
             ]}
@@ -85,9 +89,9 @@ export default function MedCard(props) {
             left="0%"
             right="0%"
             onClick={() => {
-              vectorThreeSixFourNineTwoSevenOneFourOnClick();
+              vectorThreeSixFiveThreeTwoEightSixSevenOnClick();
             }}
-            {...getOverrideProps(overrides, "Vector36492714")}
+            {...getOverrideProps(overrides, "Vector36532867")}
           ></Icon>
         </Flex>
         <Flex
@@ -109,7 +113,7 @@ export default function MedCard(props) {
             paths={[
               {
                 d: "M0 11.0837L0 14L2.91627 14L11.5173 5.39895L8.60106 2.48268L0 11.0837ZM13.7726 2.04718L11.9528 0.227426C11.8809 0.155333 11.7954 0.0981367 11.7013 0.059112C11.6073 0.0200872 11.5064 3.45356e-16 11.4046 0C11.3027 0 11.2019 0.0200872 11.1078 0.059112C11.0137 0.0981367 10.9282 0.155333 10.8563 0.227426L9.43316 1.65057L12.3494 4.56684L13.7726 3.1437C13.8447 3.07175 13.9019 2.98629 13.9409 2.89222C13.9799 2.79814 14 2.69729 14 2.59544C14 2.49359 13.9799 2.39274 13.9409 2.29866C13.9019 2.20458 13.8447 2.11912 13.7726 2.04718L13.7726 2.04718Z",
-                fill: "rgba(0,0,0,1)",
+                fill: "rgba(255,255,255,1)",
                 fillRule: "nonzero",
               },
             ]}
@@ -122,12 +126,12 @@ export default function MedCard(props) {
             bottom="0%"
             left="0%"
             right="0%"
-            {...getOverrideProps(overrides, "Vector36492716")}
+            {...getOverrideProps(overrides, "Vector36532869")}
           ></Icon>
         </Flex>
       </Flex>
       <Flex
-        gap="24px"
+        gap="10px"
         direction="column"
         width="unset"
         height="unset"
@@ -135,15 +139,17 @@ export default function MedCard(props) {
         alignItems="center"
         shrink="0"
         position="relative"
-        padding="50px 70px 50px 70px"
-        {...getOverrideProps(overrides, "medCard")}
+        borderRadius="20px 20px 0px 0px"
+        padding="65px 0px 35px 0px"
+        {...getOverrideProps(overrides, "Quantity")}
       >
         <Text
           fontFamily="Inter"
           fontSize="48px"
-          fontWeight="400"
-          color="rgba(13,26,38,1)"
-          lineHeight="25px"
+          fontWeight="700"
+          color="rgba(255,255,255,1)"
+          textTransform="capitalize"
+          lineHeight="52.80000305175781px"
           textAlign="center"
           display="block"
           direction="column"
@@ -156,27 +162,27 @@ export default function MedCard(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children="120"
-          {...getOverrideProps(overrides, "medQuantity")}
+          children={medication?.medQuanitity}
+          {...getOverrideProps(overrides, "120")}
         ></Text>
         <Flex
-          gap="0"
-          direction="column"
+          gap="2px"
+          direction="row"
           width="unset"
           height="unset"
-          justifyContent="flex-start"
+          justifyContent="center"
           alignItems="center"
           shrink="0"
           position="relative"
           padding="0px 0px 0px 0px"
-          {...getOverrideProps(overrides, "medInfo36472709")}
+          {...getOverrideProps(overrides, "Days Remaining")}
         >
           <Text
             fontFamily="Inter"
-            fontSize="20px"
+            fontSize="16px"
             fontWeight="400"
-            color="rgba(13,26,38,1)"
-            lineHeight="25px"
+            color="rgba(255,255,255,1)"
+            lineHeight="22.399999618530273px"
             textAlign="center"
             display="block"
             direction="column"
@@ -189,11 +195,80 @@ export default function MedCard(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
+            children={medication?.daysLeft}
+            {...getOverrideProps(overrides, "30")}
+          ></Text>
+          <Text
+            fontFamily="Inter"
+            fontSize="16px"
+            fontWeight="400"
+            color="rgba(255,255,255,1)"
+            lineHeight="22.399999618530273px"
+            textAlign="center"
+            display="block"
+            direction="column"
+            justifyContent="unset"
+            width="unset"
+            height="unset"
+            gap="unset"
+            alignItems="unset"
+            shrink="0"
+            position="relative"
+            padding="0px 0px 0px 0px"
+            whiteSpace="pre-wrap"
+            children="days"
+            {...getOverrideProps(overrides, "days")}
+          ></Text>
+        </Flex>
+      </Flex>
+      <Flex
+        gap="25px"
+        direction="column"
+        width="unset"
+        height="unset"
+        justifyContent="flex-start"
+        alignItems="flex-start"
+        shrink="0"
+        position="relative"
+        padding="20px 0px 25px 10px"
+        {...getOverrideProps(overrides, "Info")}
+      >
+        <Flex
+          gap="5px"
+          direction="column"
+          width="240px"
+          height="unset"
+          justifyContent="flex-start"
+          alignItems="flex-start"
+          shrink="0"
+          position="relative"
+          padding="0px 0px 0px 0px"
+          {...getOverrideProps(overrides, "Med Info")}
+        >
+          <Text
+            fontFamily="Inter"
+            fontSize="20px"
+            fontWeight="600"
+            color="rgba(255,255,255,1)"
+            textTransform="capitalize"
+            lineHeight="28px"
+            textAlign="left"
+            display="block"
+            direction="column"
+            justifyContent="unset"
+            width="unset"
+            height="unset"
+            gap="unset"
+            alignItems="unset"
+            shrink="0"
+            position="relative"
+            padding="0px 0px 0px 0px"
+            whiteSpace="pre-wrap"
             children={medication?.medName}
-            {...getOverrideProps(overrides, "medName")}
+            {...getOverrideProps(overrides, "Med Name")}
           ></Text>
           <Flex
-            gap="0"
+            gap="12px"
             direction="row"
             width="unset"
             height="unset"
@@ -202,89 +277,122 @@ export default function MedCard(props) {
             shrink="0"
             position="relative"
             padding="0px 0px 0px 0px"
-            {...getOverrideProps(overrides, "medStrengthInfo")}
+            {...getOverrideProps(overrides, "Strength and Icon")}
           >
-            <Text
-              fontFamily="Inter"
-              fontSize="16px"
-              fontWeight="400"
-              color="rgba(48,64,80,1)"
-              lineHeight="24px"
-              textAlign="center"
-              display="block"
-              direction="column"
-              justifyContent="unset"
-              letterSpacing="0.01px"
+            <Flex
+              gap="0"
+              direction="row"
               width="unset"
               height="unset"
-              gap="unset"
-              alignItems="unset"
+              justifyContent="flex-start"
+              alignItems="flex-start"
               shrink="0"
               position="relative"
               padding="0px 0px 0px 0px"
-              whiteSpace="pre-wrap"
-              children={medication?.medStrength}
-              {...getOverrideProps(overrides, "medStrength")}
-            ></Text>
-            <Text
-              fontFamily="Inter"
-              fontSize="16px"
-              fontWeight="300"
-              color="rgba(48,64,80,1)"
-              lineHeight="24px"
-              textAlign="center"
-              display="block"
-              direction="column"
-              justifyContent="unset"
-              letterSpacing="0.01px"
-              width="unset"
-              height="unset"
-              gap="unset"
-              alignItems="unset"
-              shrink="0"
-              position="relative"
-              padding="0px 0px 0px 0px"
-              whiteSpace="pre-wrap"
-              children="mg"
-              {...getOverrideProps(overrides, "mg")}
-            ></Text>
+              {...getOverrideProps(overrides, "Strength")}
+            >
+              <Text
+                fontFamily="Inter"
+                fontSize="16px"
+                fontWeight="400"
+                color="rgba(255,255,255,1)"
+                lineHeight="22.399999618530273px"
+                textAlign="left"
+                display="block"
+                direction="column"
+                justifyContent="unset"
+                width="unset"
+                height="unset"
+                gap="unset"
+                alignItems="unset"
+                shrink="0"
+                position="relative"
+                padding="0px 0px 0px 0px"
+                whiteSpace="pre-wrap"
+                children={medication?.medStrength}
+                {...getOverrideProps(overrides, "Med Strength")}
+              ></Text>
+              <Text
+                fontFamily="Inter"
+                fontSize="16px"
+                fontWeight="400"
+                color="rgba(255,255,255,1)"
+                lineHeight="22.399999618530273px"
+                textAlign="left"
+                display="block"
+                direction="column"
+                justifyContent="unset"
+                width="unset"
+                height="unset"
+                gap="unset"
+                alignItems="unset"
+                shrink="0"
+                position="relative"
+                padding="0px 0px 0px 0px"
+                whiteSpace="pre-wrap"
+                children="mg"
+                {...getOverrideProps(overrides, "Strength Unit")}
+              ></Text>
+            </Flex>
           </Flex>
         </Flex>
         <Flex
           gap="0"
-          direction="column"
-          width="unset"
+          direction="row"
+          width="240px"
           height="unset"
-          justifyContent="flex-start"
+          justifyContent="center"
           alignItems="center"
           shrink="0"
           position="relative"
           padding="0px 0px 0px 0px"
-          {...getOverrideProps(overrides, "medInfo36472701")}
+          {...getOverrideProps(overrides, "Additional Info")}
         >
           <Flex
-            gap="2px"
-            direction="row"
+            gap="8px"
+            direction="column"
             width="unset"
             height="unset"
             justifyContent="flex-start"
             alignItems="flex-start"
-            shrink="0"
+            grow="1"
+            shrink="1"
+            basis="0"
             position="relative"
-            padding="0px 0px 0px 0px"
-            {...getOverrideProps(overrides, "dailyDoseInfo")}
+            padding="0px 21px 0px 0px"
+            {...getOverrideProps(overrides, "Daily Info")}
           >
+            <Text
+              fontFamily="Inter"
+              fontSize="12px"
+              fontWeight="400"
+              color="rgba(255,255,255,1)"
+              lineHeight="13.200000762939453px"
+              textAlign="left"
+              display="block"
+              direction="column"
+              justifyContent="unset"
+              width="unset"
+              height="unset"
+              gap="unset"
+              alignItems="unset"
+              shrink="0"
+              position="relative"
+              padding="0px 0px 0px 0px"
+              whiteSpace="pre-wrap"
+              children="Daily Dose"
+              {...getOverrideProps(overrides, "Daily Dose")}
+            ></Text>
             <Text
               fontFamily="Inter"
               fontSize="16px"
               fontWeight="400"
-              color="rgba(48,64,80,1)"
-              lineHeight="24px"
-              textAlign="center"
+              color="rgba(255,255,255,1)"
+              lineHeight="22.399999618530273px"
+              textAlign="left"
               display="block"
               direction="column"
               justifyContent="unset"
-              letterSpacing="0.01px"
               width="unset"
               height="unset"
               gap="unset"
@@ -294,98 +402,61 @@ export default function MedCard(props) {
               padding="0px 0px 0px 0px"
               whiteSpace="pre-wrap"
               children={medication?.dailyDose}
-              {...getOverrideProps(overrides, "dailyDose")}
-            ></Text>
-            <Text
-              fontFamily="Inter"
-              fontSize="16px"
-              fontWeight="300"
-              color="rgba(48,64,80,1)"
-              lineHeight="24px"
-              textAlign="center"
-              display="block"
-              direction="column"
-              justifyContent="unset"
-              letterSpacing="0.01px"
-              width="unset"
-              height="unset"
-              gap="unset"
-              alignItems="unset"
-              shrink="0"
-              position="relative"
-              padding="0px 0px 0px 0px"
-              whiteSpace="pre-wrap"
-              children="daily"
-              {...getOverrideProps(overrides, "daily")}
+              {...getOverrideProps(overrides, "4")}
             ></Text>
           </Flex>
           <Flex
-            gap="4px"
-            direction="row"
+            gap="8px"
+            direction="column"
             width="unset"
             height="unset"
             justifyContent="center"
-            alignItems="flex-start"
+            alignItems="flex-end"
             shrink="0"
             position="relative"
-            padding="0px 0px 0px 0px"
-            {...getOverrideProps(overrides, "daysLeftInfo")}
+            padding="0px 10px 0px 10px"
+            {...getOverrideProps(overrides, "Take Button")}
           >
-            <Text
-              fontFamily="Inter"
-              fontSize="16px"
-              fontWeight="400"
-              color="rgba(48,64,80,1)"
-              lineHeight="24px"
-              textAlign="center"
-              display="block"
-              direction="column"
-              justifyContent="unset"
-              letterSpacing="0.01px"
+            <Flex
+              gap="0"
+              direction="row"
               width="unset"
               height="unset"
-              gap="unset"
-              alignItems="unset"
+              justifyContent="center"
+              alignItems="center"
               shrink="0"
               position="relative"
-              padding="0px 0px 0px 0px"
-              whiteSpace="pre-wrap"
-              children={medication?.daysLeft}
-              {...getOverrideProps(overrides, "daysLeft")}
-            ></Text>
-            <Text
-              fontFamily="Inter"
-              fontSize="16px"
-              fontWeight="400"
-              color="rgba(48,64,80,1)"
-              lineHeight="24px"
-              textAlign="center"
-              display="block"
-              direction="column"
-              justifyContent="unset"
-              letterSpacing="0.01px"
-              width="unset"
-              height="unset"
-              gap="unset"
-              alignItems="unset"
-              shrink="0"
-              position="relative"
-              padding="0px 0px 0px 0px"
-              whiteSpace="pre-wrap"
-              children="days"
-              {...getOverrideProps(overrides, "days")}
-            ></Text>
+              border="1px SOLID rgba(0,0,0,0)"
+              borderRadius="20px"
+              padding="5px 29px 5px 29px"
+              backgroundColor="rgba(255,92,0,1)"
+              onClick={takeClick}
+              {...getOverrideProps(overrides, "Button")}
+            >
+              <Text
+                fontFamily="Inter"
+                fontSize="14px"
+                fontWeight="700"
+                color="rgba(255,255,255,1)"
+                lineHeight="21px"
+                textAlign="left"
+                display="block"
+                direction="column"
+                justifyContent="unset"
+                width="unset"
+                height="unset"
+                gap="unset"
+                alignItems="unset"
+                shrink="0"
+                position="relative"
+                padding="0px 0px 0px 0px"
+                whiteSpace="pre-wrap"
+                children="Take"
+                {...getOverrideProps(overrides, "label")}
+              ></Text>
+            </Flex>
           </Flex>
         </Flex>
-        <Button
-          shrink="0"
-          alignSelf="stretch"
-          size="large"
-          isDisabled={false}
-          variation="primary"
-          children="Take"
-          {...getOverrideProps(overrides, "Button")}
-        ></Button>
       </Flex>
     </Flex>
   );

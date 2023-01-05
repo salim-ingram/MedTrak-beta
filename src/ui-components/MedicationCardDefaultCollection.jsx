@@ -11,9 +11,9 @@ import {
   getOverrideProps,
   useDataStoreBinding,
 } from "@aws-amplify/ui-react/internal";
-import MedCard from "./MedCard";
+import MedicationCardDefault from "./MedicationCardDefault";
 import { Collection } from "@aws-amplify/ui-react";
-export default function MedCardCollection(props) {
+export default function MedicationCardDefaultCollection(props) {
   const { items: itemsProp, overrideItems, overrides, ...rest } = props;
   const itemsDataStore = useDataStoreBinding({
     type: "collection",
@@ -28,21 +28,21 @@ export default function MedCardCollection(props) {
       itemsPerPage={3}
       templateColumns="1fr 1fr 1fr"
       autoFlow="row"
-      alignItems="stretch"
-      justifyContent="stretch"
+      alignItems="top"
+      justifyContent="left"
       items={items || []}
       {...rest}
-      {...getOverrideProps(overrides, "MedCardCollection")}
+      {...getOverrideProps(overrides, "MedicationCardDefaultCollection")}
     >
       {(item, index) => (
-        <MedCard
+        <MedicationCardDefault
           medication={item}
           height="auto"
-          margin="15px 10px 15px 10px"
           width="auto"
+          margin="15px 10px 15px 10px"
           key={item.id}
           {...(overrideItems && overrideItems({ item, index }))}
-        ></MedCard>
+        ></MedicationCardDefault>
       )}
     </Collection>
   );

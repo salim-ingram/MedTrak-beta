@@ -1,3 +1,9 @@
+type Note @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  title: String
+  text: String
+}
+
 type Medication @model @auth(rules: [{allow: public}]) {
   id: ID!
   medName: String
@@ -6,3 +12,4 @@ type Medication @model @auth(rules: [{allow: public}]) {
   medStrength: Int
   dailyDose: Int
 }
+ 

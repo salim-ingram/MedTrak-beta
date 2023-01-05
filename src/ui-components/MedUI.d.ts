@@ -5,14 +5,9 @@
  **************************************************************************/
 
 import * as React from "react";
-import { Medication } from "../models";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { FlexProps } from "@aws-amplify/ui-react";
-import { SyntheticEvent } from "react";
-export declare type MedicationCardDefaultProps = React.PropsWithChildren<Partial<FlexProps> & {
-    medication?: Medication;
-    takeClick?: (event: SyntheticEvent) => void;
-} & {
+export declare type MedUIProps = React.PropsWithChildren<Partial<FlexProps> & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
-export default function MedicationCardDefault(props: MedicationCardDefaultProps): React.ReactElement;
+export default function MedUI(props: MedUIProps): React.ReactElement;

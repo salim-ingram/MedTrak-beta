@@ -126,7 +126,7 @@ export default createTheme({
         paddingInlineEnd: {
           value: "{components.fieldcontrol.paddingInlineEnd.value}",
         },
-        borderColor: { value: "{components.fieldcontrol.borderColor.value}" },
+        borderColor: { value: "hsl(0, 0%, 100%)" },
         borderWidth: { value: "{components.fieldcontrol.borderWidth.value}" },
         borderStyle: { value: "{components.fieldcontrol.borderStyle.value}" },
         borderRadius: { value: "{components.fieldcontrol.borderRadius.value}" },
@@ -216,15 +216,15 @@ export default createTheme({
           borderWidth: { value: "0" },
           borderColor: { value: "transparent" },
           backgroundColor: { value: "transparent" },
-          color: { value: "{colors.font.interactive.value}" },
+          color: { value: "hsl(0, 0%, 0%)" },
           _hover: {
             borderColor: { value: "transparent" },
-            backgroundColor: { value: "{colors.brand.primary.10.value}" },
-            color: { value: "{colors.font.hover.value}" },
+            backgroundColor: { value: "hsla(190, 75%, 95%, 0)" },
+            color: { value: "hsl(0, 0%, 41%)" },
           },
           _focus: {
             borderColor: { value: "transparent" },
-            backgroundColor: { value: "{colors.brand.primary.10.value}" },
+            backgroundColor: { value: "hsla(190, 75%, 95%, 0)" },
             color: { value: "{colors.font.focus.value}" },
             boxShadow: {
               value: "{components.fieldcontrol._focus.boxShadow.value}",

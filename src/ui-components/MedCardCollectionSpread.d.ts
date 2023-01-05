@@ -5,14 +5,16 @@
  **************************************************************************/
 
 import * as React from "react";
-import { Medication } from "../models";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { FlexProps } from "@aws-amplify/ui-react";
-import { SyntheticEvent } from "react";
-export declare type MedicationCardDefaultProps = React.PropsWithChildren<Partial<FlexProps> & {
-    medication?: Medication;
-    takeClick?: (event: SyntheticEvent) => void;
+import { MedCardProps } from "./MedCard";
+import { CollectionProps } from "@aws-amplify/ui-react";
+export declare type MedCardCollectionSpreadProps = React.PropsWithChildren<Partial<CollectionProps<any>> & {
+    items?: any[];
+    overrideItems?: (collectionItem: {
+        item: any;
+        index: number;
+    }) => MedCardProps;
 } & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
-export default function MedicationCardDefault(props: MedicationCardDefaultProps): React.ReactElement;
+export default function MedCardCollectionSpread(props: MedCardCollectionSpreadProps): React.ReactElement;

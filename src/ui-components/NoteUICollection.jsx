@@ -6,18 +6,18 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { Medication } from "../models";
+import { Note } from "../models";
 import {
   getOverrideProps,
   useDataStoreBinding,
 } from "@aws-amplify/ui-react/internal";
-import MedCard from "./MedCard";
+import NoteUI from "./NoteUI";
 import { Collection } from "@aws-amplify/ui-react";
-export default function MedCardCollection(props) {
+export default function NoteUICollection(props) {
   const { items: itemsProp, overrideItems, overrides, ...rest } = props;
   const itemsDataStore = useDataStoreBinding({
     type: "collection",
-    model: Medication,
+    model: Note,
   }).items;
   const items = itemsProp !== undefined ? itemsProp : itemsDataStore;
   return (
@@ -25,24 +25,24 @@ export default function MedCardCollection(props) {
       type="grid"
       isPaginated={true}
       searchPlaceholder="Search..."
-      itemsPerPage={3}
+      itemsPerPage={6}
       templateColumns="1fr 1fr 1fr"
       autoFlow="row"
       alignItems="stretch"
       justifyContent="stretch"
       items={items || []}
       {...rest}
-      {...getOverrideProps(overrides, "MedCardCollection")}
+      {...getOverrideProps(overrides, "NoteUICollection")}
     >
       {(item, index) => (
-        <MedCard
-          medication={item}
+        <NoteUI
+          NoteUI={item}
           height="auto"
-          margin="15px 10px 15px 10px"
           width="auto"
+          margin="15px 10px 15px 10px"
           key={item.id}
           {...(overrideItems && overrideItems({ item, index }))}
-        ></MedCard>
+        ></NoteUI>
       )}
     </Collection>
   );

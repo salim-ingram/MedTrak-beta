@@ -5,14 +5,11 @@
  **************************************************************************/
 
 import * as React from "react";
-import { Medication } from "../models";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { FlexProps } from "@aws-amplify/ui-react";
-import { SyntheticEvent } from "react";
-export declare type MedicationCardDefaultProps = React.PropsWithChildren<Partial<FlexProps> & {
-    medication?: Medication;
-    takeClick?: (event: SyntheticEvent) => void;
+import { IconProps } from "@aws-amplify/ui-react";
+export declare type NoteMyIconProps = React.PropsWithChildren<Partial<IconProps> & {
+    type?: "alert" | "arrow-right" | "bookmark_border" | "chat" | "chat-bubble-outline" | "checkmark" | "close" | "delete" | "favorite" | "favorite_border" | "group" | "info" | "more_horiz" | "more_vert" | "reply" | "send" | "share" | "shopping_bag" | "shuffle" | "warning";
 } & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
-export default function MedicationCardDefault(props: MedicationCardDefaultProps): React.ReactElement;
+export default function NoteMyIcon(props: NoteMyIconProps): React.ReactElement;
