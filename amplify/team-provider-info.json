@@ -1,0 +1,15 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-medtrakbeta-staging-00439-authRole",
+      "UnauthRoleArn": "arn:aws:iam::749757963310:role/amplify-medtrakbeta-staging-00439-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::749757963310:role/amplify-medtrakbeta-staging-00439-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-medtrakbeta-staging-00439-deployment",
+      "UnauthRoleName": "amplify-medtrakbeta-staging-00439-unauthRole",
+      "StackName": "amplify-medtrakbeta-staging-00439",
+      "StackId": "arn:aws:cloudformation:us-west-2:749757963310:stack/amplify-medtrakbeta-staging-00439/8ca1fdd0-8c8c-11ed-90f4-0a1e8eca69ff",
+      "AmplifyAppId": "d4le7xk5bou5a"
+    }
+  }
+}
