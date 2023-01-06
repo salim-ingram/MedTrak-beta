@@ -1,12 +1,26 @@
 {
   "api": {
     "MedTrakbeta": {
-      "dependsOn": [],
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "MedTrakbeta"
+        }
+      ],
       "output": {
         "authConfig": {
           "additionalAuthenticationProviders": [
             {
               "authenticationType": "AWS_IAM"
+            },
+            {
+              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+              "userPoolConfig": {
+                "userPoolId": "authMedTrakbeta"
+              }
             }
           ],
           "defaultAuthentication": {
@@ -20,6 +34,42 @@
       },
       "providerPlugin": "awscloudformation",
       "service": "AppSync"
+    }
+  },
+  "auth": {
+    "MedTrakbeta": {
+      "customAuth": false,
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OPTIONAL",
+        "mfaTypes": [
+          "TOTP"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [
+            "REQUIRES_LOWERCASE",
+            "REQUIRES_NUMBERS",
+            "REQUIRES_SYMBOLS",
+            "REQUIRES_UPPERCASE"
+          ],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "GIVEN_NAME",
+          "FAMILY_NAME",
+          "EMAIL",
+          "PHONE_NUMBER"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito"
     }
   }
 }

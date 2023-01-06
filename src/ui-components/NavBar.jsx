@@ -9,7 +9,7 @@ import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Button, Divider, Flex, Text } from "@aws-amplify/ui-react";
 export default function NavBar(props) {
-  const { overrides, ...rest } = props;
+  const { frame32129767081, overrides, ...rest } = props;
   return (
     <Flex
       gap="20px"

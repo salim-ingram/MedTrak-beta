@@ -7,9 +7,7 @@
 import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { FlexProps } from "@aws-amplify/ui-react";
-export declare type NavBarProps = React.PropsWithChildren<Partial<FlexProps> & {
-    frame32129767081?: React.ReactNode;
-} & {
+export declare type AccountDropDownProps = React.PropsWithChildren<Partial<FlexProps> & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
-export default function NavBar(props: NavBarProps): React.ReactElement;
+export default function AccountDropDown(props: AccountDropDownProps): React.ReactElement;
